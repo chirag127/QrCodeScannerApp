@@ -1,37 +1,53 @@
 {
   "expo": {
-    "name": "QrCodeScannerApp",
-    "slug": "QrCodeScannerApp",
+    "name": "QR Scanner",
+    "slug": "qr-scanner",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
+    "userInterfaceStyle": "dark",
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#2d3436"
     },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "NSCameraUsageDescription": "This app uses the camera to scan QR codes"
+        "NSCameraUsageDescription": "We need access to your camera to scan QR codes.",
+        "NSPhotoLibraryUsageDescription": "We need access to your photo library to select images containing QR codes."
       }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#2d3436"
       },
       "permissions": [
-        "android.permission.CAMERA"
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
       ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-camera"
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow QR Scanner to access your camera to scan QR codes."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow QR Scanner to access your photos to select images containing QR codes."
+        }
+      ]
     ]
   }
 }
